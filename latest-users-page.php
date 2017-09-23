@@ -59,7 +59,6 @@ class latest_users_page
                 $users = qa_db_read_all_assoc(qa_db_query_sub($sql, $limit));
                 $usershtml = qa_userids_handles_html($users);
 
-                $duplicated_ips = [];
                 $user_array_ip_key = '';
 
                 if ($request === 'users/latest-registered') {
