@@ -1,6 +1,6 @@
 # Latest users plugin to [Question2Answer](http://question2answer.org/)
 
-Plugin add pages with latest registered and latest logged users with action IP.
+Plugin add pages with latest registered and latest logged users with action IP. Plugin highlights duplicated IP addresses, so you can simply detect multi-accounts.
 
 ## Installation
 
