@@ -81,7 +81,7 @@ class latest_users_page
 
                     foreach ($duplicated_ips as $duplicate) {
                         if ($user[$user_array_ip_key] === $duplicate) {
-                            $ip_link_style .= 'duplicated-ip';
+                            $ip_link_style = 'duplicated-ip';
                         }
                     }
 
@@ -155,7 +155,7 @@ class latest_users_page
         $unique_values = array_unique($array);
         $duplicate_values = array_diff_assoc($array, $unique_values);
 
-        return $duplicate_values;
+        return array_unique($duplicate_values);
     }
 
     private function get_ip_html($ip, $link_style = '')
