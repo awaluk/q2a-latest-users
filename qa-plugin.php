@@ -6,15 +6,15 @@
 
 /*
 	Plugin Name: Latest users
-	Plugin URI:
+	Plugin URI: https://github.com/awaluk/q2a-latest-users
 	Plugin Description: Show latest registered and latest logged users
 	Plugin Version: 1.0
-	Plugin Date: 2016-06-28
+	Plugin Date: 2017-09-23
 	Plugin Author: Arkadiusz Waluk
 	Plugin Author URI: http://waluk.pl
-	Plugin License:
+	Plugin License: MIT
 	Plugin Minimum Question2Answer Version: 1.5
-	Plugin Update Check URI:
+	Plugin Update Check URI: https://raw.githubusercontent.com/awaluk/q2a-latest-users/master/metadata.json
 */
 
 if (!defined('QA_VERSION')) {
