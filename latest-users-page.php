@@ -31,6 +31,13 @@ class latest_users_page
                 .lastest-center {
                     text-align: center;
                 }
+
+                .duplicated-ip,
+                .duplicated-ip:hover,
+                .duplicated-ip:visited {
+                    color: #FF0000;
+                }
+
             </style>';
 
             $sql = '';
@@ -51,6 +58,17 @@ class latest_users_page
             if (!empty($sql)) {
                 $users = qa_db_read_all_assoc(qa_db_query_sub($sql, $limit));
                 $usershtml = qa_userids_handles_html($users);
+
+                $user_array_ip_key = '';
+
+                if ($request === 'users/latest-registered') {
+                    $user_array_ip_key = 'createip';
+                } elseif ($request === 'users/latest-logged') {
+                    $user_array_ip_key = 'loginip';
+                }
+
+                $duplicated_ips = $this->get_duplicates(array_column($users, $user_array_ip_key));
+
                 $usersrows = '';
                 foreach ($users as $user) {
                     if (QA_FINAL_EXTERNAL_USERS) {
@@ -58,16 +76,22 @@ class latest_users_page
                     } else {
                         $avatarhtml = qa_get_user_avatar_html($user['flags'], $user['email'], $user['handle'], $user['avatarblobid'], $user['avatarwidth'], $user['avatarheight'], qa_opt('avatar_users_size'), true);
                     }
-                    if ($request === 'users/latest-registered') {
-                        $ip = qa_ip_anchor_html(long2ip($user['createip']));
-                    } elseif ($request === 'users/latest-logged') {
-                        $ip = qa_ip_anchor_html(long2ip($user['loginip']));
+
+                    $ip_link_style = '';
+
+                    foreach ($duplicated_ips as $duplicate) {
+                        if ($user[$user_array_ip_key] === $duplicate) {
+                            $ip_link_style = 'duplicated-ip';
+                        }
                     }
+
+                    $ip = long2ip($user[$user_array_ip_key]);
+                    $ip_html = $this->get_ip_html($ip, $ip_link_style);
 
                     $usersrows .= '<tr>
                         <td class="qa-top-users-label">' . $avatarhtml . $usershtml[$user['userid']] . '</td>
                         <td class="lastest-center">' . ($request === 'users/latest-registered' ? $user['created'] : $user['loggedin']) . '</td>
-                        <td class="lastest-center">' . $ip . '</td>
+                        <td class="lastest-center">' . $ip_html . '</td>
                     </tr>';
                 }
 
@@ -124,5 +148,22 @@ class latest_users_page
         ];
 
         return $form;
+    }
+
+    private function get_duplicates($array)
+    {
+        $unique_values = array_unique($array);
+        $duplicate_values = array_diff_assoc($array, $unique_values);
+
+        return array_unique($duplicate_values);
+    }
+
+    private function get_ip_html($ip, $link_style = '')
+    {
+        $href = qa_path_html('ip/' . $ip);
+        $title = qa_lang_html_sub('main/ip_address_x', qa_html($ip));
+
+        $html = '<a href="' . $href . '" title="' . $title . '" class="qa-ip-link ' . $link_style . '">' . $ip . '</a>';
+        return $html;
     }
 }
