@@ -28,11 +28,16 @@ class latest_users_page
                 .latest-center {
                     text-align: center;
                 }
-
                 .duplicated-ip,
                 .duplicated-ip:hover,
                 .duplicated-ip:visited {
                     color: #FF0000;
+                }
+                .qa-top-users-label {
+                    display: flex;
+                }
+                .qa-top-users-label .qa-user-link {
+                    margin-left: 15px;
                 }
             </style>';
 
