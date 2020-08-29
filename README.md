@@ -1,6 +1,8 @@
 # Latest users plugin to [Question2Answer](http://question2answer.org/)
 
-Plugin add pages with latest registered and latest logged users with action IP. Plugin highlights duplicated IP addresses, so you can simply detect multi-accounts.
+Plugin add pages with the latest registered and latest logged users with IP addresses. In addition, plugin highlights duplicated IP addresses, so you can simply detect multi-accounts.
+
+Tested on **Q2A version >= 1.7.0 and PHP >= 7.0**. Code style adjusted to Q2A style.
 
 ## Installation
 
@@ -8,15 +10,10 @@ Clone or download this repository to *qa-plugin* directory in your Q2A.
  
 ## Configuration
 
-Please go to admin panel and `Plugins` tab (*/admin/plugins*). Next, search *Latest users* and click *settings* link next to plugin description. At the end set number of latest registered and logged users, and click save.
+Please go to admin panel and `Plugins` tab (*/admin/plugins*). Next, search *Latest users* and click *settings* link next to plugin description. At the end set number of latest registered and logged users per page, and click save.
 
 If you want disable page, please set number to 0.
 
-After you enable pages, links show in `Users` page in submenu. Addresses to this pages are:
+After you enable pages, links will be shown in `Users` page in a submenu. URLs to these pages are:
 - */users/latest-registered*
 - */users/latest-logged*
-
----
-
-**Important notice about code!**
-This code don't respect PHP PSR-2 standard, because Question2Answer unfortunately too don't respect this. Also, I couldn't design classes and functions in my own way, because most of them impose Question2Answer script.

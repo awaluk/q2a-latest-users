@@ -1,8 +1,4 @@
 <?php
-/**
- * Q2A Latest users - plugin to Question2Answer
- * @author Arkadiusz Waluk <arkadiusz@waluk.pl>
- */
 
 return [
     'latest_registered_title' => 'Ostatnio zarejestrowani użytkownicy',
@@ -12,7 +8,7 @@ return [
     'user' => 'Użytkownik',
     'date' => 'Data',
     'ip' => 'IP',
-    'no_permission' => 'Nie masz uprawnień, aby zobaczyć tę stronę!',
+    'no_permission' => 'Nie masz uprawnień, aby zobaczyć tę stronę!',
 
     'latest_registered_admin' => 'Ilość ostatnio zarejestrowanych użytkowników do wyświetlenia',
     'latest_logged_admin' => 'Ilość ostatnio zalogowanych użytkowników do wyświetlenia',

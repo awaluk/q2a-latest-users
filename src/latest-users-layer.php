@@ -1,8 +1,4 @@
 <?php
-/**
- * Q2A Latest users - plugin to Question2Answer
- * @author Arkadiusz Waluk <arkadiusz@waluk.pl>
- */
 
 class qa_html_theme_layer extends qa_html_theme_base
 {
@@ -17,7 +13,7 @@ class qa_html_theme_layer extends qa_html_theme_base
         ];
 
         if ($navtype === 'nav-sub' && in_array(qa_request(), $pages)) {
-            $latest_registered = (int) qa_opt('latest_registered_users');
+            $latest_registered = (int)qa_opt('latest_registered_users');
             if ($latest_registered > 0) {
                 $navigation['users/latest-registered'] = [
                     'label' => qa_lang_html('latest_users/latest_registered_nav'),
@@ -25,7 +21,7 @@ class qa_html_theme_layer extends qa_html_theme_base
                     'selected' => qa_request() === 'users/latest-registered'
                 ];
             }
-            $latest_logged = (int) qa_opt('latest_logged_users');
+            $latest_logged = (int)qa_opt('latest_logged_users');
             if ($latest_logged > 0) {
                 $navigation['users/latest-logged'] = [
                     'label' => qa_lang_html('latest_users/latest_logged_nav'),
@@ -35,6 +31,6 @@ class qa_html_theme_layer extends qa_html_theme_base
             }
         }
 
-        qa_html_theme_base::nav_list($navigation, $navtype);
+        parent::nav_list($navigation, $navtype);
     }
 }

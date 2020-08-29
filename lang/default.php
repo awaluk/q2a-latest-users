@@ -1,8 +1,4 @@
 <?php
-/**
- * Q2A Latest users - plugin to Question2Answer
- * @author Arkadiusz Waluk <arkadiusz@waluk.pl>
- */
 
 return [
     'latest_registered_title' => 'Latest registered users',
