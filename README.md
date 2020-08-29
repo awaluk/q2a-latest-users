@@ -17,3 +17,9 @@ If you want disable page, please set number to 0.
 After you enable pages, links will be shown in `Users` page in a submenu. URLs to these pages are:
 - */users/latest-registered*
 - */users/latest-logged*
+
+## Screenshots
+
+![Page](images/page.png)
+
+![Plugin settings](images/settings.png)
